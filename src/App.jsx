@@ -70,14 +70,17 @@ function App() {
   
 }
 <li key={index} className="task-item">
-  {
   <input 
 type="checkbox"
-checked={true}
-onChange={() => {task}} }
+checked={task.completed}
+onChange={() => handleToggle(index)}
+/>
 <span className="task-text">{task.text}</span>
-<button className="delete-button" onClick={() => handleDelete(index)}>
-  ✍️
+<button 
+className="delete-button"
+onClick={() => handleDelete(index)}
+>
+  🗑️
 </button>
 </li>
 
