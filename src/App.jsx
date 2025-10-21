@@ -24,6 +24,15 @@ function App() {
   const handleDelete = (indexToDelete) => {
     setTasks(tasks.filter((_, index) => index !== indexToDelete));
   };
+    const handleToggle = (indexToToggle) => {
+      setTasks(
+        tasks.map((task,index) =>
+        index === indexToToggle
+        ? {...task, completed: !task.completed }
+        :task
+      )
+    );
+  };
 
   // ==== JSX that gets returned =====
   return (
@@ -56,7 +65,21 @@ function App() {
         ))}
       </ul>
     </div>
+    
   );
+  
 }
+<li key={index} className="task-item">
+  {
+  <input 
+type="checkbox"
+checked={true}
+onChange={() => {task}} }
+<span className="task-text">{task.text}</span>
+<button className="delete-button" onClick={() => handleDelete(index)}>
+  ✍️
+</button>
+</li>
+
 
 export default App;
